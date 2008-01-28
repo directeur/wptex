@@ -1,0 +1,116 @@
+%%%%%%%%%%%% COLORS %%%%%%%%%%%%%
+\definecolor{MyBrown}{rgb}{0.694,0.078,0.078}
+\newcommand{\brownit}[1]{{\color{MyBrown}{#1}}}
+\newcommand{\gargantuan}{\fontsize{45}{55}\selectfont}
+\newcommand{\chapsize}{\fontsize{36}{38}\selectfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}                     %Declares the package fancyhdr
+                %Forces the page to use the fancy template
+\renewcommand{\chaptermark}[1]{\markboth{\textbf{\thechapter}.\ \emph{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ \boldmath\textbf{#1}\unboldmath}}
+                                          %The text used in the header is determined by the arguments to the \markboth
+                                          % and \markright commands used here. The chapter information will appear as the
+                                          % chapter number in bold, followed by a dot and a space, followed by the chapter
+                                          % title (dealt with by LaTeX---no user intervention needed here) in italics. The
+                                          % section information will appear as the section number, followed by a space, and
+                                          % then the section title (again generated automatically) in bold. Any maths in
+                                          % the section title will also appear in bold (provided the bold font exists).
+\fancyhf{}                                %Clears all header and footer fields, in preparation.
+\fancyhead[LE,RO]{\textbf{\thepage}}      %Displays the page number in bold in the header,
+                                          % to the left on even pages and to the right on odd pages.
+\fancyhead[RE]{\nouppercase{\leftmark}}   %Displays the upper-level (chapter) information---
+                                          % as determined above---in non-upper case in the header, to the right on even pages.
+\fancyhead[LO]{\rightmark}                %Displays the lower-level (section) information---as
+                                          % determined above---in the header, to the left on odd pages.
+
+\fancyfoot[RO,LE]{\green \hyperref[toc]{\upshape Table of Content}}
+
+\renewcommand{\headrulewidth}{0.4pt}      %Underlines the header. (Set to 0pt if not required).
+\renewcommand{\footrulewidth}{0.2pt}      %Underlines the footer. (Set to 0pt if not required).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\usepackage{pifont}
+\newcommand\mylleaf{\ding{247}}
+\newcommand\myrleaf{\reflectbox{\mylleaf}} 
+
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{pstcol,fancybox}
+\makeatletter
+\def\LigneVerticale{\brownit{\vrule height 5cm depth 1cm}\hspace{0.1cm}\relax}
+
+\def\LignesVerticales{%
+  \let\LV\LigneVerticale\LV\LV\LV\LV\LV\LV\LV\LV\LV\LV}
+
+\def\GrosCarreAvecUnChiffre#1{%
+  \rlap{\brownit{\vrule height 0.8cm width 1cm depth 0.2cm}}%
+  \rlap{\hbox to 1cm{\hss\mbox{\white #1}\hss}}%
+  \vrule height 0pt width 1cm depth 0pt}
+
+\def\@makechapterhead#1{\hbox{%
+    \huge 
+    \LignesVerticales
+    \hspace{-0.5cm}%
+    \GrosCarreAvecUnChiffre{\thechapter}
+    \hspace{0.2cm}\hbox{\scshape  \brownit{\chapsize{\scshape  #1}}}%
+\vspace{2cm}
+}\par\vskip 2cm}
+
+\def\@makeschapterhead#1{\hbox{%
+    \huge
+    \LignesVerticales
+    \hspace{0.5cm}%
+    \hbox{\scshape  #1}%
+}\par\vskip 2cm}
+%%%% fin macro %%%%
+
+
+
+%%%
+%%secions
+%%%%
+% Align? ? gauche, suivi d'un filet horizontal
+\makeatletter
+\def\section{\@ifstar\unnumberedsection\numberedsection}
+\def\numberedsection{\@ifnextchar[%]
+  \numberedsectionwithtwoarguments\numberedsectionwithoneargument}
+\def\unnumberedsection{\@ifnextchar[%]
+  \unnumberedsectionwithtwoarguments\unnumberedsectionwithoneargument}
+\def\numberedsectionwithoneargument#1{\numberedsectionwithtwoarguments[#1]{#1}}
+\def\unnumberedsectionwithoneargument#1{\unnumberedsectionwithtwoarguments[#1]{#1}}
+\def\numberedsectionwithtwoarguments[#1]#2{%
+  \ifhmode\par\fi
+  \removelastskip
+  \vskip 3ex\goodbreak
+  \refstepcounter{section}%
+  \begingroup
+  \noindent
+  \leavevmode\Large\bfseries\raggedright
+  \thesection\ #2\par\nobreak
+  \endgroup
+  \noindent\hrulefill\nobreak
+  \vskip 2ex\nobreak
+  \addcontentsline{toc}{section}{%
+    \protect\numberline{\thesection}%
+    #1}%
+  }
+\def\unnumberedsectionwithtwoarguments[#1]#2{%
+  \ifhmode\par\fi
+  \removelastskip
+  \vskip 3ex\goodbreak
+%  \refstepcounter{section}%
+  \begingroup
+  \noindent
+  \leavevmode\Large\bfseries\raggedright
+%  \thesection\ 
+  #2\par\nobreak
+  \endgroup
+  \noindent\hrulefill\nobreak
+  \vskip 2ex\nobreak
+  \addcontentsline{toc}{section}{%
+%    \protect\numberline{\thesection}%
+    #1}%
+  }

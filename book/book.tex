@@ -1,0 +1,60 @@
+\documentclass[a4paper,oneside,20pt]{book} 
+
+\usepackage[applemac]{inputenc} %use latin1 for windows and linux
+\usepackage[T1]{fontenc} 
+\usepackage{txfonts}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{color}
+\definecolor{MyBrown}{rgb}{0.694,0.078,0.078}
+\usepackage{url}
+\usepackage[pdfborder=0 0 0,colorlinks=true,linkcolor= MyBrown,plainpages=false,pdfpagelabels]{hyperref}
+\usepackage[english,francais]{babel} 
+\usepackage{makeidx}
+%\usepackage{index}
+\makeindex
+\usepackage[inner=3.83cm]{geometry}
+\headsep = 25pt
+
+%%% BG
+\usepackage{eso-pic}
+
+\input{style.tex}
+
+
+\author{\Huge <author>} 
+\title{
+\brownit{\gargantuan {\upshape \textbf{<title>}}} \\
+\emph {<subtitle>}
+} 
+\date{} %oter la date
+
+  
+\pagestyle{empty}
+
+\begin{document}
+ 
+\frontmatter
+\begin{figure}[h] 
+\centering 
+\maketitle 
+\includegraphics{cover.jpg} 
+\vspace{2cm}
+\end{figure}
+
+\tableofcontents
+\label{toc}
+\pagestyle{fancy} 
+
+\newpage
+
+\mainmatter 
+
+\input{bookcontent.tex}
+
+\backmatter
+\chapter*{nota bene}
+Here you can put some paragraphs as a backmatter for your book.
+\printindex
+\label{ind}
+\end{document}

@@ -1,0 +1,276 @@
+body{
+	background:#ccc url(../media/diagonals.gif) repeat;
+	font-family:Georgia,"Times new roman",serif;
+
+	font-size:14px;
+}
+
+#container{
+	margin:30px auto;
+	margin-bottom:20px;
+	width:680px;
+	border:1px solid #999;
+	background:#FFFFFF;
+	padding:20px;
+	padding-bottom:80px;
+}
+
+#texte{
+	padding:40px;
+}
+
+#texte a, #texte a:visited{
+    color:#0069F3;
+    text-decoration:none;
+}
+
+#texte a:hover{
+    background-color:#FBFF80;
+    text-decoration:underline;
+}
+
+#footer{
+    border-top:1px solid #ddd;
+    text-align:center;
+    width:60%;
+    margin:5em auto;
+    margin-bottom:1em;
+    color:#555;
+    font-size:12px;
+}
+
+#formulaire{
+	float:right;
+	width:350px;
+	margin:20px;
+	padding:15px;
+	border:4px dashed #555;
+	background:#FFF9B9;
+	clear:both;
+}
+
+fieldset{
+	border:1px #444 solid;
+}
+
+.center{
+	text-align:center;
+}
+
+.right{
+    text-align:right;
+}
+
+.droite{
+	text-align:right;
+	font-style:italic;
+	clear:both;
+	color:#555;
+	font-size:14px;
+}
+
+li{
+	margin-bottom:20px;
+	line-height:150%;
+}
+
+p{
+	line-height:170%;
+}
+
+h1{
+	font-size:28px;
+	width:75%;
+	margin:20px auto;
+}
+
+.description{
+    text-align:center;
+    font-size:1em;
+    color:#777;
+}
+
+h1 span, h2 span{
+	color:#C50404;
+}
+
+h1 span.ybg, h2 span.ybg{
+	color:#C50404;
+	background-color:#FFFC9B;
+}
+
+h1#logo{
+	text-align:center;
+	/*margin-left:152px;*/
+	text-indent:-3000px;
+	background:url(../media/logo.png) center center;
+	width:375px;
+	height:120px;
+	margin-bottom:30px;
+}
+
+h2{
+	font-size:1.2em;
+    color:#3F5F97;
+	font-weight:bold;
+}
+
+.letrine{
+	float:left;
+	clear:both;
+	font-size:45px;
+}
+
+.footnote{
+	margin-top:25px;
+	border-top:1px #ddd solid;
+	padding-top:10px;
+	width:250px;
+	font-size:10px;
+	font-style:italic
+}
+
+.btn{
+	margin-top:15px;
+	font-weight:bold;
+	font-size:14px;
+	padding:8px;
+}
+	
+#menu {
+    margin: 3em auto; 
+    margin-top:.5em;
+    padding: .5em 0; 
+    width:60%;
+	list-style-type: none; 
+    list-style-image: none; 
+    border-top:1px solid #ccc;
+    text-align:center;
+}
+
+#menu li{
+    display: inline; 
+    text-align:center;
+    margin:0;
+    padding:0;
+}
+
+#menu li a {
+    text-decoration:none;
+    margin:10px 0;
+    font-size:12px;
+	padding: 2px 20px 2px 20px;
+    text-transform:uppercase;
+    color: blue;
+}
+
+#menu li a:hover {
+    color: black;
+}
+
+
+/* Champs et bouttons */
+input {
+	font-size: 12px;
+	border: 1px solid #999;
+	padding:6px;
+}
+
+textarea {
+	font-size: 12px;
+	background: #fff;
+	padding:3px;
+	border: 1px solid #999;
+}
+
+.download {
+    text-align:center;
+    margin:2em auto;
+}
+.download a{
+    border: 1px solid #9BC3FF; 
+    background-color: #C4DAFC; 
+    color:#4D8EF0;
+    padding: 0.3em 0.5em; 
+    margin-right: 1em;
+    font-size:2em;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.download a:hover{
+    text-decoration:none;
+    color:#1E63CA;
+    background-color:#B4D2FF;
+}
+
+/* fieldset styling */
+fieldset {
+	margin: 20px 0;
+	border :2px solid #ccc;
+	background: #fffef7 ;
+	padding:15px;
+
+}
+
+fieldset.buttonspanel{
+    border:2px #ffcc55 solid; 
+    background:#ffffaa;
+    padding:8px;
+}
+
+/* legend styling */
+legend {
+    font-family:verdana,arial,"trebuchet ms";
+    color:#214ac6;
+    font-size:14px;
+    font-weight: bolder;
+    padding: 0 0.5em; /* just some cosmetic padding */
+    font-size:10pt;
+}
+
+
+label{
+	font-size: 8pt;
+}
+
+
+
+/* style form elements on focus */
+input:focus, textarea:focus {
+    border:1px solid #555
+}
+
+input:hover {
+    border:1px solid #555
+}
+textarea {
+	width: 100%;font-size: 10pt;
+}
+
+.button
+{
+    color: #fff; 
+    background: #ff6600;
+    border: 2px double #a43002;
+    border-left-color: #ffba77;
+    border-top-color: #ffba77;
+    font-size:16px;
+    font-family: Arial,Verdana;
+    padding:4px;
+}
+.button:active
+{
+    border: 2px double #ffba77;
+    border-left-color: #a43002;
+    border-top-color: #a43002;
+}
+
+.button:hover{
+    color:#ffee11;
+    border: 2px double #a43002;
+    border-left-color: #ffba77;
+    border-top-color: #ffba77;
+}
+
+
