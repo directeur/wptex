@@ -132,12 +132,13 @@ function htmlTOlatex($str){
 	$str=str_replace('</strong>',"}",$str);
 
 	$str=str_replace('target="_blank"',"",$str);
-	$linkpattern='<a href="([A-Za-z0-9$_.+!*,;/?:@&~=-]+)">([A-Za-z0-9$_.+!*,;/?:@&~=-]+)</a>';
-	$linkpatterntitled='<a href="([A-Za-z0-9$_.+!*,;/?:@&~=-]+)" title="([A-Za-z0-9$_.+!*,;/?:@&~=-]+)">([A-Za-z0-9$_.+!*,;/?:@&~=-]+)</a>';
+	$linkpattern='<a href="([A-Za-z0-9$_\.+!*,;/?:@&~=-]+)">([A-Za-z0-9$_\.+!*,;/?:@&~=-]+)</a>';
+	$linkpatterntitled='<a href="([A-Za-z0-9$_\.+!*,;/?:@&~=-]+)" title="([A-Za-z0-9$_\.+!*,;/?:@&~=-]+)">([A-Za-z0-9$_\.+!*,;/?:@&~=-]+)</a>';
 	$linkrep='\href{\\1}{\\2}';
+	$linkreptitled='\href{\\1}{\\3}';
 
 	$str=ereg_replace($linkpattern,$linkrep,$str);
-	$str=ereg_replace($linkpatterntitled,$linkrep,$str);
+	$str=ereg_replace($linkpatterntitled,$linkreptitled,$str);
 
 	return (converttexaccents($str));
 }
@@ -186,11 +187,13 @@ function GenerateTex($keywords=''){
             $texcontent.= '\\section{'.htmlTOlatex(html_entity_decode(utf8_decode($p->post_title)))."}\n";
             $postbody= htmlTOlatex(html_entity_decode(utf8_decode($p->post_content)))."\n\n";
 
-            //integrate index
-            foreach ($index as $keyword){
-                if(trim($keyword)!='')
-                    $postbody=str_replace(" $keyword "," $keyword  \\index{".$keyword."}",$postbody);
-                    $postbody=str_replace(" $keyword".'s '," $keyword".'s '." \\index{".$keyword."}",$postbody); //pluriel
+            //integrate index if keywords given
+            if(is_array($keywords)){
+                foreach ($index as $keyword){
+                    if(trim($keyword)!='')
+                        $postbody=str_replace(" $keyword "," $keyword  \\index{".$keyword."}",$postbody);
+                        $postbody=str_replace(" $keyword".'s '," $keyword".'s '." \\index{".$keyword."}",$postbody); //pluriel
+                }
             }
 
             $texcontent.=$postbody;
